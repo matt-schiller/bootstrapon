@@ -3,16 +3,19 @@
 ## Bootstrap object
 - [ ] Merge selector duplicates
 - [ ] Support for combo selectors
+- [ ] Support for pseudo selectors
 - [ ] Add name
 - [ ] Add docs refs
 
 ## API auth
 - [x] Send email
-- [ ] DB integration
-- [ ] Generate API key in DB for email
-- [ ] API key generation form
-- [ ] Check key in API request
+- [x] DB integration
+- [x] Generate API key in DB for email
+- [x] API key generation form
+- [x] Check key in API request
 - [ ] Twilio SMS verification
+- [ ] Add key to own search requests
+- [ ] Add admin user to seeders
 
 ## API docs
 - [ ] 
@@ -29,7 +32,7 @@
 
 ## Autocompiler
 - [ ] HTML input
-- [ ] Cheerio get
+- [ ] Request and cheerio loading
 - [ ] Find classes
 - [ ] Display classes
 - [ ] 

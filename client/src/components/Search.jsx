@@ -44,7 +44,7 @@ class Search extends Component {
 
   onSearch(event) {
     event.preventDefault();
-    axios.get('/api/selector/'+this.state.value)
+    axios.get('/api/search/'+this.state.value)
     .then((response) => {
       this.setState({
         results: response.data,
@@ -85,7 +85,7 @@ class Search extends Component {
         <div className="row">
           <div className={"text-center "+this.state.leftCol} style={{transition: '500ms ease'}}>
             <h2>Search</h2>
-            <form onSubmit={this.onSearch} style={{maxWidth: '250px'}} className="mx-auto">
+            <form onSubmit={this.onSearch} className="mx-auto" style={{maxWidth: '250px'}}>
               <Autosuggest suggestions={suggestions} getSuggestionValue={getSuggestionValue} renderSuggestion={renderSuggestion} inputProps={inputProps} onSuggestionSelected={this.onSuggestionSelected} theme={theme} renderInputComponent={renderInputComponent} />
             </form>
           </div>

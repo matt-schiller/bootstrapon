@@ -13,7 +13,7 @@ class Home extends Component {
                   <p className="lead text-danger text-uppercase">Strap on your Bootstrap</p>
                   <h1 className="font-weight-light">Welcome to Bootstrapon</h1>
                   <p className="lead">A complete set of tools for better understanding and using the latest Bootstrap (currently v4.1.0)</p>
-                  <button className="btn btn-lg btn-danger py-3 px-4 shadow">Get a free API key</button>
+                  <a className="btn btn-lg btn-danger py-3 px-4 shadow" href="/register">Get a free API key</a>
                 </div>
                 <div className="col-5 align-self-end">
                   <img className="w-75 mt-5" src="/images/clown-developer.png" alt="Boostrapon Guy" />

@@ -9,6 +9,9 @@ const request = require('request');
 const PORT = process.env.PORT || 3001;
 const app = express();
 
+// Models
+const db = require('./models');
+
 // Helper functions
 const sendEmail = require('.//lib/emailer.js');
 const sendSMS = require('./lib/twilio.js');
@@ -28,16 +31,27 @@ if (process.env.NODE_ENV === 'production') {
   app.use(express.static('client/build'));
 }
 
-// API - get selector
-app.get('/api/selector/:selector', function(req, res) {
-  var json = [];
-  bootstrap.forEach(function(element) {
-    if(element.selector==req.params.selector) { json.push(element); }
-  })
-  res.json(json);
+// API - search by selector
+app.get('/api/search/:selector', function(req, res) {
+  var apiKey = req.query.key;
+  db.User.findOne({
+    where: { api_key: apiKey }
+  }).then(function(data) {
+    if (data.email) {
+      var json = [];
+      bootstrap.forEach(function(element) {
+        if(element.selector==req.params.selector) { json.push(element); }
+      })
+      res.json(json);
+    } else {
+      res.status(400).send('Invalid API key');
+    }
+  }).catch(function(data) {
+    res.status(400).send('Invalid API key');
+  });
 });
 
-// API - scrape
+// API - scrape page
 app.post('/api/scrape', function(req, res) {
   var url = req.body.url;
   console.log(url);
@@ -45,6 +59,18 @@ app.post('/api/scrape', function(req, res) {
     // var result = getClasses(html);
     var result = assembleCSS(html);
     res.send(result);
+  });
+});
+
+// API - create user
+app.post('/api/user/create', function(req, res) {
+  var email = req.body.email;
+  db.User.create({
+    email: email
+  }).then(function(data) {
+    console.log('Created new user');
+    sendEmail(data.email, data.api_key)
+    res.send('New user created - API key sent to '+email);
   });
 });
 
@@ -59,10 +85,12 @@ app.get('*', function(req, res) {
   res.sendFile(path.join(__dirname, "./client/build/index.html"));
 });
 
-app.listen(PORT, function() {
-  console.log(`Server now on port ${PORT}!`);
+// Start DB and app
+db.sequelize.sync().then(function() {
+  app.listen(PORT, function() {
+    console.log('App listening on port '+PORT);
+  });
 });
-
 // // Email and SMS tests
 // sendEmail('matt@snappr.co', 'kj45l3j5lk37k7l758lkl');
 // sendSMS('+14152721237', '1234');
