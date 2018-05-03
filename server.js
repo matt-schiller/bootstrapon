@@ -91,6 +91,7 @@ db.sequelize.sync().then(function() {
     console.log('App listening on port '+PORT);
   });
 });
+
 // // Email and SMS tests
 // sendEmail('matt@snappr.co', 'kj45l3j5lk37k7l758lkl');
 // sendSMS('+14152721237', '1234');
