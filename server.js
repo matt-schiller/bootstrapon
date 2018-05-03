@@ -86,11 +86,11 @@ app.get('*', function(req, res) {
 });
 
 // Start DB and app
-db.sequelize.sync().then(function() {
+// db.sequelize.sync().then(function() {
   app.listen(PORT, function() {
     console.log('App listening on port '+PORT);
   });
-});
+// });
 
 // // Email and SMS tests
 // sendEmail('matt@snappr.co', 'kj45l3j5lk37k7l758lkl');
