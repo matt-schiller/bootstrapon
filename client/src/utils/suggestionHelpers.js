@@ -1,6 +1,5 @@
 import React from 'react';
 import bootstrap from '../utils/bootstrap';
-// import bootstrapSelectors from '../utils/bootstrapSelectors';
 
 function escapeRegexCharacters(str) {
   return str.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
@@ -10,17 +9,16 @@ function getSuggestions(value) {
   const escapedValue = escapeRegexCharacters(value.trim());
   if (escapedValue === '') { return []; }
   const regex = new RegExp('^' + escapedValue, 'i');
-  // return bootstrap.filter(selector => regex.test(selector.selector)).slice(0, 10); // Max 10 suggestions
-  return bootstrap.filter(selector => regex.test(selector.selector)).slice(0, 10); // Max 10 suggestions
+  return bootstrap.filter(selector => regex.test(selector)).slice(0, 10); // Max 10 suggestions
 }
 
 function getSuggestionValue(suggestion) {
-  return suggestion.selector;
+  return suggestion;
 }
 
 function renderSuggestion(suggestion) {
   return (
-    <a>{suggestion.selector}</a>
+    <a>{suggestion}</a>
   );
 }
 

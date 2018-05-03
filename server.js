@@ -76,7 +76,7 @@ app.post('/api/user/create', function(req, res) {
 });
 
 // API - parse entire Bootstrap
-app.get('/api/all', function(req, res) {
+app.get('/api/parse', function(req, res) {
   var result = parser();
   res.json(result);
 })

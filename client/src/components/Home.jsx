@@ -24,7 +24,7 @@ class Home extends Component {
           <div>
             <div className="container text-center my-5">
               <p>Soon to be used by these great companies</p>
-              <img className="w-75" src="/images/logos.jpg" alt="Company logos" />
+              <img className="w-100" style={{'-webkit-filter': 'grayscale(100%)', 'filter': 'grayscale(100%)'}} src="/images/logos.jpg" alt="Company logos" />
             </div>
           </div>
           <div className="bg-light">

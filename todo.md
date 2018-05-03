@@ -24,17 +24,24 @@
 - [ ] 
 
 ## Search GUI
-- [ ] Search box
-- [ ] Autosuggest
-- [ ] Basic results
-- [ ] Animation
+- [x] Search box
+- [x] Autosuggest functionality
+- [ ] Autosuggest list
+- [x] Basic results
+- [x] Animation
 - [ ] Results with media and combos
 
 ## Autocompiler
-- [ ] HTML input
-- [ ] Request and cheerio loading
+- [x] HTML input
+- [x] Request and cheerio loading
 - [ ] Find classes
 - [ ] Display classes
+- [ ] Download file
+
+## UI
+- [ ] Oneliners top bar
+- [ ] Colors
+- [ ] 
 - [ ] 
 
 

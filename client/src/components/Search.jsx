@@ -97,7 +97,7 @@ class Search extends Component {
               {this.state.results.map((object, index) => {
                 return (
                   <div>
-                    <h4>{object.media.replace('none', 'All screen sizes')}</h4>
+                    <h4>{object.media=='' ? 'All screen sizes' : object.media}</h4>
                     <SyntaxHighlighter language='css' style={tomorrowNight} customStyle={{borderRadius: '4px', padding: '15px'}} showLineNumbers={true}>{object.declarations.replace(/;/g,";\n")}</SyntaxHighlighter>
                   </div>
                 )
