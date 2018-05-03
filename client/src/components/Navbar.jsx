@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import logo from '../images/bootstrapon-logo.svg';
 
 class Navbar extends Component {
 
@@ -7,7 +8,7 @@ class Navbar extends Component {
             <nav className="navbar navbar-expand-lg bg-light px-4 py-4">
                 {/* <div className="container"> */}
                     <a className="navbar-brand font-weight-light text-danger" href="/">
-                        <img alt="Snappr" src="/images/bootstrapon-logo.svg" height="20" className="mr-2" />
+                        <img alt="Snappr" src={logo} height="20" className="mr-2" />
                         Bootstrapon
                     </a>
                     <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
