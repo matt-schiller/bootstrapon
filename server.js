@@ -64,9 +64,10 @@ app.post('/api/scrape', function(req, res) {
 
 // API - create user
 app.post('/api/user/create', function(req, res) {
-  var email = req.body.email;
   db.User.create({
-    email: email
+    firstname: req.body.firstname,
+    lastname: req.body.lastname,
+    email: req.body.email
   }).then(function(data) {
     console.log('Created new user');
     sendEmail(data.email, data.api_key)
