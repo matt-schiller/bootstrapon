@@ -32,6 +32,7 @@
     "dotenv": "^5.0.1",
     "express": "^4.16.3",
     "nodemailer": "^4.6.4",
+    "pg": "^7.4.1",
     "request": "^2.85.0",
     "sequelize": "^4.37.6",
     "twilio": "^3.16.0"
