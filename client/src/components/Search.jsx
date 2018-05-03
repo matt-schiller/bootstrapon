@@ -44,7 +44,7 @@ class Search extends Component {
 
   onSearch(event) {
     event.preventDefault();
-    axios.get('/api/search/'+this.state.value)
+    axios.get('/api/search/'+this.state.value+'?key=b7af2690-4e8b-11e8-9dd4-0d7e1cbc903c')
     .then((response) => {
       this.setState({
         results: response.data,
