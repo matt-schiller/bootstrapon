@@ -16,6 +16,7 @@ class Autoassembler extends Component {
       otherTags: [],
       otherClasses: [],
       css: 'No CSS here yet',
+      bytes: '',
       spinner: 'd-none'
     };
     this.onSubmit = this.onSubmit.bind(this);
@@ -52,6 +53,7 @@ class Autoassembler extends Component {
     });
     axios.post('/api/autocompile', {urls: this.state.pages})
     .then((response) => {
+      var file = new Blob([response.data.css], {type: 'text/plain'});
       this.setState({
         srcTags: response.data.srcTags,
         srcClasses: response.data.srcClasses,
@@ -60,6 +62,7 @@ class Autoassembler extends Component {
         otherTags: response.data.otherTags,
         otherClasses: response.data.otherClasses,
         css: response.data.css,
+        bytes: file.size,
         spinner: 'd-none'
       });
     })
@@ -74,7 +77,9 @@ class Autoassembler extends Component {
   downloadCSSFile = () => {
     var element = document.createElement('a');
     var file = new Blob([this.state.css], {type: 'text/plain'});
-    console.log('Downloading file of ' + file.size + ' bytes');
+    this.setState({
+      bytes: file.size
+    });
     element.href = URL.createObjectURL(file);
     element.download = 'bootstrapon.css';
     element.click();
@@ -129,7 +134,7 @@ class Autoassembler extends Component {
           <div className="container">
             <h2>We've generated your custom Bootstrap CSS</h2>
             <button className="btn btn-lg btn-danger" onClick={this.downloadCSSFile}><i className="fas fa-code"></i> Download bootstrapon.css</button>
-
+            {this.state.bytes && <p className="d-block w-100">File size: {Math.round(this.state.bytes/1024)} Kb</p>}
             <h3 className="mt-5">Here's what's inside</h3>
             <div className="row mt-4">
 

@@ -96,7 +96,7 @@ class Search extends Component {
           button={false}
           image="clown-type"
         />
-        <div className="container mt-5">
+        <div className="container mt-5" style={{minHeight: "500px"}}>
           <div className="row">
             <div className={"text-center "+this.state.leftCol} style={{transition: '500ms ease'}}>
               <h2>Search</h2>

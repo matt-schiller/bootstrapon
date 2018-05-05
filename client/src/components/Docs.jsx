@@ -17,33 +17,23 @@ class Docs extends Component {
     const exampleResponse = `[
       {
           "media": "",
-          "selector": ".container",
-          "declarations": "width:100%;padding-right:15px;padding-left:15px;margin-right:auto;margin-left:auto;"
-      },
-      {
-          "media": "(min-width: 576px)",
-          "selector": ".container",
-          "declarations": "max-width:540px;"
-      },
-      {
-          "media": "(min-width: 768px)",
-          "selector": ".container",
-          "declarations": "max-width:720px;"
-      },
-      {
-          "media": "(min-width: 992px)",
-          "selector": ".container",
-          "declarations": "max-width:960px;"
-      },
-      {
-          "media": "(min-width: 1200px)",
-          "selector": ".container",
-          "declarations": "max-width:1140px;"
+          "selector": ".navbar",
+          "combinator": false,
+          "mainSelector": ".navbar",
+          "pseudo": null,
+          "combo": false,
+          "attribute": null,
+          "declarations": "position:relative;display:-ms-flexbox;display:flex;-ms-flex-wrap:wrap;flex-wrap:wrap;-ms-flex-align:center;align-items:center;-ms-flex-pack:justify;justify-content:space-between;padding:0.5rem 1rem;"
       },
       {
           "media": "print",
-          "selector": ".container",
-          "declarations": "min-width:992px !important;"
+          "selector": ".navbar",
+          "combinator": false,
+          "mainSelector": ".navbar",
+          "pseudo": null,
+          "combo": false,
+          "attribute": null,
+          "declarations": "display:none;"
       }
   ]`;
 
@@ -114,6 +104,31 @@ class Docs extends Component {
                     <td>selector</td>
                     <td>String</td>
                     <td>The selector for the rule-set</td>
+                  </tr>
+                  <tr>
+                    <td>combinator</td>
+                    <td>Boolean</td>
+                    <td>Whether the selector contains a combinator</td>
+                  </tr>
+                  <tr>
+                    <td>mainSelector</td>
+                    <td>String</td>
+                    <td>The last class or tag to appear in the selector, excluding pseudo and attribute selectors</td>
+                  </tr>
+                  <tr>
+                    <td>pseudo</td>
+                    <td>String</td>
+                    <td>Pseudo selector if any (null if none)</td>
+                  </tr>
+                  <tr>
+                    <td>combo</td>
+                    <td>Boolean</td>
+                    <td>Whether the selector is a combo selector (e.g. two classes)</td>
+                  </tr>
+                  <tr>
+                    <td>attribute</td>
+                    <td>String</td>
+                    <td>Attribute selector if any (null if none)</td>
                   </tr>
                   <tr>
                     <td>declaration</td>

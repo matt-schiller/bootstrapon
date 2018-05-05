@@ -29,8 +29,8 @@
 - [x] Autosuggest list
 - [x] Basic results
 - [x] Animation
-- [ ] Results with media and combos
-- [ ] COLLAPSE ON MEDIA
+- [x] Results with media and combos
+- [x] Collapse on media
 
 ## Autocompiler
 - [x] HTML input
@@ -41,6 +41,7 @@
 - [x] Allow multiple URLs
 - [x] Change name to Autoassembler
 - [ ] Reduce file size by collapsing selector groups
+- [ ] Feed off main selector (not selector)
 
 ## Selector
 - [ ] List of selectors and checkboxes

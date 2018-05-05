@@ -21,7 +21,7 @@ class Home extends Component {
         <TopPanel 
           lead="Have a little more fun with Bootstrap"
           title="Welcome to Bootstrapon"
-          description="The freakiest set of tools for better understanding and using the latest Bootstrap (currently v4.1.0)"
+          description="The quirkiest set of tools for better understanding and using the latest Bootstrap (currently v4.1.0)"
           button={true}
           buttonText="Get a free API Key"
           buttonHref="/register"
@@ -35,7 +35,7 @@ class Home extends Component {
         </div>
         <div className="bg-light py-5">
           <div className="container py-5">
-            <h2>A tool for every Bootstrap need</h2>
+            <h2>Come on in and take a look at our wares...</h2>
             <div className="row">
               <HomeColumn href="/search" title="Bootstrap Search" description="Quickly get raw CSS and information for any Bootstrap class" buttonText="Search now" icon="fas fa-search" />
               <HomeColumn href="/docs" title="Bootstrap API" description="Programatically retrieve info on Bootstrap elements by class name" buttonText="API Docs" icon="fas fa-code" />

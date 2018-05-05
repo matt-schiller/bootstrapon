@@ -56,7 +56,7 @@ class Register extends Component {
           button={false}
           image="clown-happy"
         />
-        <div className="container mt-5">
+        <div className="container my-5">
           <form className="mx-auto mt-5" style={{maxWidth: '400px'}} onSubmit={this.onSubmit}>
             <div className="row">
               <div className="form-group col">

@@ -9,6 +9,8 @@ import Docs from './components/Docs';
 import Selector from './components/Selector';
 import Autoassembler from './components/Autoassembler';
 import Register from './components/Register';
+import Roadmap from './components/Roadmap';
+import About from './components/About';
 
 class App extends Component {
   render() {
@@ -22,6 +24,8 @@ class App extends Component {
           <Route exact path='/selector' component={Selector} />
           <Route exact path='/autoassembler' component={Autoassembler} />
           <Route exact path='/register' component={Register} />
+          <Route exact path='/roadmap' component={Roadmap} />
+          <Route exact path='/about' component={About} />
         </div>
       </Router>
     );
