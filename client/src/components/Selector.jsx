@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 
+import TopPanel from '../components/TopPanel';
+
 class Selector extends Component {
   constructor(props, context) {
     super(props, context);
@@ -17,8 +19,17 @@ class Selector extends Component {
 
   render() {
     return (
-      <div className="container mt-5">
-        Hello world
+      <div>
+        <TopPanel 
+          lead="Select only what you need"
+          title="Bootstrapon Selector"
+          description="You choose the classes, we do the rest"
+          button={false}
+          image="clown-gun"
+        />
+        <div className="container mt-5">
+          Hello world
+        </div>
       </div>
     );
   }

@@ -2,6 +2,44 @@ body {
   font-family: 'Catamaran', sans-serif!important;
 }
 
+.navbar-brand {
+  font-family: 'Sunshiney', sans-serif!important;
+  font-size: 24px;
+}
+
+h1 {
+  font-family: 'Sunshiney', sans-serif!important;
+  font-size: 50px;
+}
+
+.btn-danger, .btn-danger:hover {
+  background-color: #f22f46;
+  border-color: #f22f46;
+}
+
+.text-danger {
+  color: #f22f46;
+}
+
+
+
+
+
+.image-appear {
+  opacity: 0.01;
+}
+
+.image-appear.image-appear-active {
+  opacity: 1;
+  transition: opacity 0.5s ease-in;
+}
+
+
+
+
+
+/* Colors */
+
 .dark-gray {
   color: #0d122b;
 }

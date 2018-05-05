@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
-import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 import SyntaxHighlighter from 'react-syntax-highlighter';
-import { tomorrowNight } from 'react-syntax-highlighter/styles/hljs';
+import { tomorrowNightBlue } from 'react-syntax-highlighter/styles/hljs';
 import axios from 'axios';
-
 import Autosuggest from 'react-autosuggest';
+
+import TopPanel from '../components/TopPanel';
+
 import { getSuggestions, getSuggestionValue, renderSuggestion, renderInputComponent } from '../utils/suggestionHelpers.js';
 
 class Search extends Component {
@@ -63,6 +64,12 @@ class Search extends Component {
 
   render() {
 
+    const customSyntaxStyle = {
+      borderRadius: '4px',
+      padding: '15px',
+      backgroundColor: '#565b73'
+    };
+
     const { value, suggestions } = this.state;
 
     const inputProps = {
@@ -73,7 +80,7 @@ class Search extends Component {
 
     const theme = {
       container: 'autosuggest',
-      input: 'form-control',
+      input: 'form-control form-control-lg',
       suggestionsContainer: 'dropdown',
       suggestionsList: `dropdown-menu ${suggestions.length ? 'show' : ''}`,
       suggestion: 'dropdown-item',
@@ -81,28 +88,32 @@ class Search extends Component {
     };
 
     return (
-      <div className="container mt-5">
-        <div className="row">
-          <div className={"text-center "+this.state.leftCol} style={{transition: '500ms ease'}}>
-            <h2>Search</h2>
-            <form onSubmit={this.onSearch} className="mx-auto" style={{maxWidth: '250px'}}>
-              <Autosuggest suggestions={suggestions} getSuggestionValue={getSuggestionValue} renderSuggestion={renderSuggestion} inputProps={inputProps} onSuggestionSelected={this.onSuggestionSelected} theme={theme} renderInputComponent={renderInputComponent} />
-            </form>
-          </div>
-          <div className="col" style={{opacity: this.state.rightColOpacity, transition: '1000ms ease'}}>
-            <ReactCSSTransitionGroup
-              transitionName="example"
-              transitionEnterTimeout={2000}
-              transitionLeaveTimeout={300}>
-              {this.state.results.map((object, index) => {
-                return (
-                  <div>
-                    <h4>{object.media=='' ? 'All screen sizes' : object.media}</h4>
-                    <SyntaxHighlighter language='css' style={tomorrowNight} customStyle={{borderRadius: '4px', padding: '15px'}} showLineNumbers={true}>{object.declarations.replace(/;/g,";\n")}</SyntaxHighlighter>
-                  </div>
-                )
-              })}
-            </ReactCSSTransitionGroup>
+      <div>
+        <TopPanel 
+          lead="Find out what's really going on"
+          title="Bootstrapon Search"
+          description="Search for any selector and see the CSS"
+          button={false}
+          image="clown-type"
+        />
+        <div className="container mt-5">
+          <div className="row">
+            <div className={"text-center "+this.state.leftCol} style={{transition: '500ms ease'}}>
+              <h2>Search</h2>
+              <form onSubmit={this.onSearch} className="mx-auto" style={{maxWidth: '250px'}}>
+                <Autosuggest suggestions={suggestions} getSuggestionValue={getSuggestionValue} renderSuggestion={renderSuggestion} inputProps={inputProps} onSuggestionSelected={this.onSuggestionSelected} theme={theme} renderInputComponent={renderInputComponent} />
+              </form>
+            </div>
+            <div className="col" style={{opacity: this.state.rightColOpacity, transition: '1000ms ease'}}>
+                {this.state.results.map((object, index) => {
+                  return (
+                    <div>
+                      <h4>{object.media==='' ? 'All screen sizes' : object.media}</h4>
+                      <SyntaxHighlighter language='css' style={tomorrowNightBlue} customStyle={customSyntaxStyle} showLineNumbers={true}>{object.declarations.replace(/;/g,";\n")}</SyntaxHighlighter>
+                    </div>
+                  )
+                })}
+            </div>
           </div>
         </div>
       </div>

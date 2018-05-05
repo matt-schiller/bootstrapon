@@ -15,9 +15,10 @@ const db = require('./models');
 // Helper functions
 const sendEmail = require('.//lib/emailer.js');
 const sendSMS = require('./lib/twilio.js');
-const parser = require('./lib/parser.js');
+const getBootstrapObject = require('./lib/getBootstrapObject.js');
 const getClasses = require('./lib/getClasses.js');
 const assembleCSS = require('./lib/assembleCSS.js');
+const requests = require('./lib/requests.js');
 
 // Data files
 const bootstrap = require('./data/bootstrap.js');
@@ -51,15 +52,14 @@ app.get('/api/search/:selector', function(req, res) {
   });
 });
 
-// API - scrape page
-app.post('/api/scrape', function(req, res) {
-  var url = req.body.url;
-  console.log(url);
-  request(url, function (error, response, html) {
-    // var result = getClasses(html);
-    var result = assembleCSS(html);
+// API - autocompile page
+app.post('/api/autocompile', function(req, res) {
+  var urls = req.body.urls;
+  requests(urls, function(responses){
+    var result = getClasses(responses);
     res.send(result);
   });
+  
 });
 
 // API - create user
@@ -71,13 +71,13 @@ app.post('/api/user/create', function(req, res) {
   }).then(function(data) {
     console.log('Created new user');
     sendEmail(data.email, data.api_key)
-    res.send('New user created - API key sent to '+email);
+    res.send('New user created - API key sent to '+data.email);
   });
 });
 
 // API - parse entire Bootstrap
 app.get('/api/parse', function(req, res) {
-  var result = parser();
+  var result = getBootstrapObject();
   res.json(result);
 })
 

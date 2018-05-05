@@ -1,11 +1,12 @@
 # To do list
 
 ## Bootstrap object
-- [ ] Merge selector duplicates
+- [x] Merge selector duplicates
 - [ ] Support for combo selectors
 - [ ] Support for pseudo selectors
 - [ ] Add name
 - [ ] Add docs refs
+- [ ] Add category
 
 ## API auth
 - [x] Send email
@@ -17,11 +18,10 @@
 - [ ] Add key to own search requests
 - [ ] Add admin user to seeders
 
-## API docs
-- [ ] 
-- [ ] 
-- [ ] 
-- [ ] 
+## API and docs
+- [x] Basic docs
+- [x] Selector search endpoint
+- [ ] Category search endpoint
 
 ## Search GUI
 - [x] Search box
@@ -34,15 +34,23 @@
 ## Autocompiler
 - [x] HTML input
 - [x] Request and cheerio loading
-- [ ] Find classes
-- [ ] Display classes
+- [x] Find classes
+- [x] Display classes
+- [x] Download file
+- [x] Allow multiple URLs
+
+## Selector
+- [ ] List of selectors and checkboxes
+- [ ] Compile
 - [ ] Download file
 
 ## UI
-- [ ] Oneliners top bar
-- [ ] Colors
-- [ ] 
-- [ ] 
+- [x] Oneliners top bar
+- [x] Colors
+- [ ] Vertical centering
+- [ ] Custom logo block
+- [x] Images and top block for each section of site
+- [ ] Coming soon page
 
 
 ## Changelog

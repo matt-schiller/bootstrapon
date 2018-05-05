@@ -1,5 +1,5 @@
 import React from 'react';
-import bootstrap from '../utils/bootstrap';
+import bootstrapSelectors from '../utils/bootstrapSelectors';
 
 function escapeRegexCharacters(str) {
   return str.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
@@ -9,7 +9,7 @@ function getSuggestions(value) {
   const escapedValue = escapeRegexCharacters(value.trim());
   if (escapedValue === '') { return []; }
   const regex = new RegExp('^' + escapedValue, 'i');
-  return bootstrap.filter(selector => regex.test(selector)).slice(0, 10); // Max 10 suggestions
+  return bootstrapSelectors.filter(selector => regex.test(selector)).slice(0, 10); // Max 10 suggestions
 }
 
 function getSuggestionValue(suggestion) {
@@ -26,7 +26,7 @@ const renderInputComponent = inputProps => (
   <div className="input-group mx-auto">
       <input {...inputProps} />
       <div className="input-group-append">
-        <button className="btn btn-outline-secondary" type="submit"><i className="fas fa-search"></i></button>
+        <button className="btn btn-lg btn-outline-secondary" type="submit"><i className="fas fa-search"></i></button>
       </div>
   </div>
 );

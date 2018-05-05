@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 
+import TopPanel from '../components/TopPanel';
+
 class Register extends Component {
   constructor(props, context) {
     super(props, context);
@@ -46,30 +48,39 @@ class Register extends Component {
 
   render() {
     return (
-      <div className="container mt-5">
-        <h2 className="text-center">Register for a Bootstrapon API key</h2>
-        <form className="mx-auto mt-5" style={{maxWidth: '400px'}} onSubmit={this.onSubmit}>
-          <div className="row">
-            <div className="form-group col">
-              <label>First name</label>
-              <input className="form-control" value={this.state.firstname} onChange={this.onChange} type="text" name="firstname" placeholder="Your first name" />
+      <div>
+        <TopPanel 
+          lead="Join the party"
+          title="Register for an API key"
+          description="It's totally free"
+          button={false}
+          image="clown-happy"
+        />
+        <div className="container mt-5">
+          <form className="mx-auto mt-5" style={{maxWidth: '400px'}} onSubmit={this.onSubmit}>
+            <div className="row">
+              <div className="form-group col">
+                <label>First name</label>
+                <input className="form-control form-control-lg" value={this.state.firstname} onChange={this.onChange} type="text" name="firstname" placeholder="Your first name" />
+              </div>
+              <div className="form-group col">
+                <label>Last name</label>
+                <input className="form-control form-control-lg" value={this.state.lastname} onChange={this.onChange} type="text" name="lastname" placeholder="Your last name" />
+              </div>
             </div>
-            <div className="form-group col">
-              <label>Last name</label>
-              <input className="form-control" value={this.state.lastname} onChange={this.onChange} type="text" name="lastname" placeholder="Your last name" />
+            <div className="form-group">
+              <label>Email</label>
+              <input className="form-control form-control-lg" value={this.state.email} onChange={this.onChange} type="text" name="email" placeholder="Your email address" />
             </div>
-          </div>
-          <div className="form-group">
-            <label>Email</label>
-            <input className="form-control" value={this.state.email} onChange={this.onChange} type="text" name="email" placeholder="Your email address" />
-          </div>
-          
-          <button className="btn btn-primary" type="submit">Register for API key</button>
-          <div className={this.state.spinner}>
-            <i className="fas fa-spinner fa-2x fa-spin"></i>
-          </div>
-          {this.state.message && <div className="alert alert-primary mt-3">{this.state.message}</div>}
-        </form>
+            <div className="text-center mt-5">
+              <button className="btn btn-danger btn-lg" type="submit">Register for API key</button>
+            </div>
+            <div className={this.state.spinner}>
+              <i className="fas fa-spinner fa-2x fa-spin"></i>
+            </div>
+            {this.state.message && <div className="alert alert-primary mt-3">{this.state.message}</div>}
+          </form>
+        </div>
       </div>
     );
   }
