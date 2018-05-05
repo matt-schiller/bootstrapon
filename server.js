@@ -4,6 +4,7 @@ const path = require('path');
 const bodyParser = require('body-parser');
 const dotenv = require('dotenv').config();
 const request = require('request');
+const _ = require('underscore');
 
 // Express app
 const PORT = process.env.PORT || 3001;
@@ -32,7 +33,29 @@ if (process.env.NODE_ENV === 'production') {
   app.use(express.static('client/build'));
 }
 
-// API - search by selector
+// API - search by selector - GUI
+app.get('/api/search-gui/:selector', function(req, res) {
+  var apiKey = req.query.key;
+  db.User.findOne({
+    where: { api_key: apiKey }
+  }).then(function(data) {
+    if (data.email) {
+      var json = [];
+      bootstrap.forEach(function(element) {
+        if(element.mainSelector==req.params.selector) { json.push(element); }
+      })
+      var groupedJson = _.groupBy(json, 'media'); 
+      res.json(groupedJson);
+      console.log(groupedJson);
+    } else {
+      res.status(400).send('No API key');
+    }
+  }).catch(function(data) {
+    res.status(400).send('Invalid API key');
+  });
+});
+
+// API - search by selector - plain
 app.get('/api/search/:selector', function(req, res) {
   var apiKey = req.query.key;
   db.User.findOne({
@@ -41,11 +64,12 @@ app.get('/api/search/:selector', function(req, res) {
     if (data.email) {
       var json = [];
       bootstrap.forEach(function(element) {
-        if(element.selector==req.params.selector) { json.push(element); }
+        if(element.mainSelector==req.params.selector) { json.push(element); }
       })
       res.json(json);
+      console.log(groupedJson);
     } else {
-      res.status(400).send('Invalid API key');
+      res.status(400).send('No API key');
     }
   }).catch(function(data) {
     res.status(400).send('Invalid API key');

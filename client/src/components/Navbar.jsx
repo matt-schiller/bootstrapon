@@ -31,7 +31,7 @@ class Navbar extends Component {
                                     <a className="nav-link text-secondary" href="/selector">Selector</a>
                                 </li>
                                 <li className="nav-item px-2">
-                                    <a className="nav-link text-secondary" href="/autocompile">Autocompiler</a>
+                                    <a className="nav-link text-secondary" href="/autoassembler">Autoassembler</a>
                                 </li>
                             </ul>
                             <ul className="navbar-nav">

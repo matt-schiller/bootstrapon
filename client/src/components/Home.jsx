@@ -40,7 +40,7 @@ class Home extends Component {
               <HomeColumn href="/search" title="Bootstrap Search" description="Quickly get raw CSS and information for any Bootstrap class" buttonText="Search now" icon="fas fa-search" />
               <HomeColumn href="/docs" title="Bootstrap API" description="Programatically retrieve info on Bootstrap elements by class name" buttonText="API Docs" icon="fas fa-code" />
               <HomeColumn href="/selector" title="Bootstrap Selector" description="Pick just the Bootstrap classes you need to make a file" buttonText="Select now" icon="fas fa-check-square" />
-              <HomeColumn href="/autocompile" title="Bootstrap Autocompile" description="Analyze your code to generate a custom Bootstrap file" buttonText="Analyze Now" icon="fas fa-magic" />
+              <HomeColumn href="/autoassembler" title="Bootstrap Autoassembler" description="Analyze your code to generate a custom Bootstrap file" buttonText="Analyze Now" icon="fas fa-magic" />
             </div>
           </div>
         </div>

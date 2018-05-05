@@ -7,7 +7,7 @@ import Home from './components/Home';
 import Search from './components/Search';
 import Docs from './components/Docs';
 import Selector from './components/Selector';
-import Autocompile from './components/Autocompile';
+import Autoassembler from './components/Autoassembler';
 import Register from './components/Register';
 
 class App extends Component {
@@ -20,7 +20,7 @@ class App extends Component {
           <Route exact path='/search' component={Search} />
           <Route exact path='/docs' component={Docs} />
           <Route exact path='/selector' component={Selector} />
-          <Route exact path='/autocompile' component={Autocompile} />
+          <Route exact path='/autoassembler' component={Autoassembler} />
           <Route exact path='/register' component={Register} />
         </div>
       </Router>

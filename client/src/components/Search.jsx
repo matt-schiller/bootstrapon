@@ -45,7 +45,7 @@ class Search extends Component {
 
   onSearch(event) {
     event.preventDefault();
-    axios.get('/api/search/'+this.state.value+'?key=b7af2690-4e8b-11e8-9dd4-0d7e1cbc903c')
+    axios.get('/api/search-gui/'+this.state.value+'?key=b7af2690-4e8b-11e8-9dd4-0d7e1cbc903c')
     .then((response) => {
       this.setState({
         results: response.data,
@@ -105,14 +105,32 @@ class Search extends Component {
               </form>
             </div>
             <div className="col" style={{opacity: this.state.rightColOpacity, transition: '1000ms ease'}}>
-                {this.state.results.map((object, index) => {
+                {Object.keys(this.state.results).map( (key) => {
                   return (
                     <div>
-                      <h4>{object.media==='' ? 'All screen sizes' : object.media}</h4>
-                      <SyntaxHighlighter language='css' style={tomorrowNightBlue} customStyle={customSyntaxStyle} showLineNumbers={true}>{object.declarations.replace(/;/g,";\n")}</SyntaxHighlighter>
+                      <h4>{key==='' ? 'All screen sizes' : '@media '+key}</h4>
+                      {this.state.results[key].map((object, index) => {
+                        return (
+                          <SyntaxHighlighter language='css' style={tomorrowNightBlue} customStyle={customSyntaxStyle} showLineNumbers={true}>
+                            {`${object.selector} {\n  ${object.declarations.replace(/;/g,";\n  ").slice(0, -2)}}`}
+                          </SyntaxHighlighter>
+                        )
+                      })}
+                        
                     </div>
                   )
                 })}
+
+                {/* {this.state.results.map((object, index) => {
+                  return (
+                    <div>
+                      <h4>{object.media==='' ? 'All screen sizes' : '@media '+object.media}</h4>
+                      <SyntaxHighlighter language='css' style={tomorrowNightBlue} customStyle={customSyntaxStyle} showLineNumbers={true}>
+                        {`${object.selector} {\n  ${object.declarations.replace(/;/g,";\n  ").slice(0, -2)}}`}
+                      </SyntaxHighlighter>
+                    </div>
+                  )
+                })} */}
             </div>
           </div>
         </div>

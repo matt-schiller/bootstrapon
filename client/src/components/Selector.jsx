@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import bootstrap from '../utils/bootstrap';
 
 import TopPanel from '../components/TopPanel';
 
@@ -18,6 +19,10 @@ class Selector extends Component {
   };
 
   render() {
+
+    const firsts = [ 0, 600, 1200, 1800 ];
+    const lasts = [ 599, 1199, 1799, 2399 ]
+
     return (
       <div>
         <TopPanel 
@@ -28,7 +33,21 @@ class Selector extends Component {
           image="clown-gun"
         />
         <div className="container mt-5">
-          Hello world
+          <h2>Coming soon!</h2>
+          {/* <div className="row">
+            {bootstrap.map((rule, index) => {
+              return (
+                <div>
+                  {firsts.includes(index) && <div className="col">}
+                  <div className="form-check" key={rule.selector}>
+                    <input type="checkbox" className="form-check-input" id={rule.selector} />
+                    <label className="form-check-label">{rule.selector}</label>
+                  </div>
+                  {lasts.includes(index) && </ div>}
+                </div>
+              )
+            })}
+          </div> */}
         </div>
       </div>
     );
