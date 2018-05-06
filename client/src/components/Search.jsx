@@ -49,7 +49,7 @@ class Search extends Component {
     .then((response) => {
       this.setState({
         results: response.data,
-        leftCol: 'col-6'
+        leftCol: 'col-xs-12 col-md-6'
       });
       setTimeout( () => {
         this.setState({
@@ -96,9 +96,9 @@ class Search extends Component {
           button={false}
           image="clown-type"
         />
-        <div className="container mt-5" style={{minHeight: "500px"}}>
+        <div className="container my-5" style={{minHeight: "500px"}}>
           <div className="row">
-            <div className={"text-center "+this.state.leftCol} style={{transition: '500ms ease'}}>
+            <div className={"text-center mb-5 "+this.state.leftCol} style={{transition: '500ms ease'}}>
               <h2>Search</h2>
               <form onSubmit={this.onSearch} className="mx-auto" style={{maxWidth: '250px'}}>
                 <Autosuggest suggestions={suggestions} getSuggestionValue={getSuggestionValue} renderSuggestion={renderSuggestion} inputProps={inputProps} onSuggestionSelected={this.onSuggestionSelected} theme={theme} renderInputComponent={renderInputComponent} />

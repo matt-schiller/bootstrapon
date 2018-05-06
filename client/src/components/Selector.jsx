@@ -32,7 +32,7 @@ class Selector extends Component {
           button={false}
           image="clown-gun"
         />
-        <div className="container mt-5">
+        <div className="container my-5">
           <h2>Coming soon!</h2>
           {/* <div className="row">
             {bootstrap.map((rule, index) => {

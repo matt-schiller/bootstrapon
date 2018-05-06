@@ -46,9 +46,9 @@ class Docs extends Component {
           button={false}
           image="clown-nose"
         />
-        <div className="container mt-5">
-          <div className="row">
-            <div className="col-6">
+        <div className="container my-5">
+          <div className="row my-4">
+            <div className="col-xs-12 col-md-6">
               <h3>Introduction</h3>
               <p>The Bootstrapon API is a HTTP JSON API and allows you to programatically retreive information about Bootstrap elements.</p>
               <p>You can access the API directly via HTTP.</p>   
@@ -62,27 +62,28 @@ class Docs extends Component {
               <p>Some parameters are passed in via query string, e.g. API key.</p>
               <h5>Request body params</h5>
               <p>There is currently no use of request body params in the API.</p>
-              <hr /> 
             </div>
-            <div className="col-6">
+            <div className="col-xs-12 col-md-6">
               {/* <SyntaxHighlighter language='shell' style={tomorrowNightBlue} customStyle={customSyntaxStyle} showLineNumbers={true}></SyntaxHighlighter> */}
             </div>
           </div>
-          <div className="row">
-            <div className="col-6">
+          <hr />
+          <div className="row my-4">
+            <div className="col-xs-12 col-md-6">
               <h3>Authentication</h3>
               <p>In order to access the API, you will need to provide an access key to authenticate with the API server. That key will be required for all API requests.</p>
               <p>You can <a href="/register">register</a> for a free API key.</p>
               <p>Once you have acquired an API key, it must be provided via the query string parameter 'key'.</p>
-              <hr /> 
+
             </div>
-            <div className="col-6">
+            <div className="col-xs-12 col-md-6">
               <h6 className="text-secondary text-uppercase">Example request</h6>
               <SyntaxHighlighter language='shell' style={tomorrowNightBlue} customStyle={customSyntaxStyle} showLineNumbers={true}>curl https://www.bootstrapon.co/api?key=b7af2690-4e8b-11e8-9dd4-0d7e1cbc903c</SyntaxHighlighter>
             </div>
           </div>
-          <div className="row">
-            <div className="col-6">
+          <hr /> 
+          <div className="row my-4">
+            <div className="col-xs-12 col-md-6">
               <h3>Rule-sets</h3>
               <h4>Model</h4>
               <p>A rule-set is a single CSS selector and media query set, including tag selectors, class selectors, descendant combinator selectors, child combinator selectors, attribute selectors, and pseudo-class selectors. Where selectors are defined together in Bootstrap (comma-separated with same declarations) they are treated separately in the data model.</p>
@@ -142,9 +143,8 @@ class Docs extends Component {
               <p><span className="badge badge-success">GET</span> /api/search/:selector</p>
               <h5>Response</h5>
               <p>An array of rule-set objects</p>
-              <hr />
             </div>
-            <div className="col-6">
+            <div className="col-xs-12 col-md-6">
               <h6 className="text-secondary text-uppercase">Example request</h6>
               <SyntaxHighlighter language='shell' style={tomorrowNightBlue} customStyle={customSyntaxStyle} showLineNumbers={true}>curl https://www.bootstrapon.co/api/search/.container?key=b7af2690-4e8b-11e8-9dd4-0d7e1cbc903c</SyntaxHighlighter>
               <h6 className="text-secondary text-uppercase">Example response</h6>

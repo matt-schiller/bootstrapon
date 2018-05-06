@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 
 class HomeColumn extends Component {
 
@@ -12,7 +13,7 @@ class HomeColumn extends Component {
           </span>
           <h5 className="card-title">{this.props.title}</h5>
           <p className="card-text">{this.props.description}</p>
-          <a href={this.props.href} className="btn btn-danger">{this.props.buttonText}</a>
+          <Link to={this.props.href} className="btn btn-danger">{this.props.buttonText}</Link>
         </div>
       </div>
     );

@@ -96,49 +96,49 @@ class Autoassembler extends Component {
           image="clown-guitar"
         />
         <div className="container my-5">
-          <div className="w-50">
-            <h2>Enter URLs</h2>
-            <p>Include http:// or https://</p>
-            <form onSubmit={this.onSubmit}>
-              {this.state.pages.map((page, idx) => {
-                return (
-                  <div key={idx} className="input-group my-3">
-                    <input className="form-control form-control-lg" value={page} placeholder={`Page ${idx+1}`} onChange={this.pageChange(idx)} />
-                    {idx>0 &&
-                    <div className="input-group-append">
-                      <button className="btn btn-lg btn-outline-secondary" onClick={this.deletePage(idx)}><i className="fas fa-minus"></i></button>
+          <div className="row">
+            <div className="col-xs-12 col-md-6">
+              <h2>Enter URLs</h2>
+              <p>Include http:// or https://</p>
+              <form onSubmit={this.onSubmit}>
+                {this.state.pages.map((page, idx) => {
+                  return (
+                    <div key={idx} className="input-group my-3">
+                      <input className="form-control form-control-lg" value={page} placeholder={`Page ${idx+1}`} onChange={this.pageChange(idx)} />
+                      {idx>0 &&
+                      <div className="input-group-append">
+                        <button className="btn btn-lg btn-outline-secondary" onClick={this.deletePage(idx)}><i className="fas fa-minus"></i></button>
+                      </div>
+                      }
+                      {idx+1===this.state.pages.length &&
+                      <div className="input-group-append">
+                        <button className="btn btn-lg btn-outline-secondary" onClick={this.addPage}><i className="fas fa-plus"></i></button>
+                      </div>
+                      }
+                      
                     </div>
-                    }
-                    {idx+1===this.state.pages.length &&
-                    <div className="input-group-append">
-                      <button className="btn btn-lg btn-outline-secondary" onClick={this.addPage}><i className="fas fa-plus"></i></button>
-                    </div>
-                    }
-                    
+                  )
+                })}
+                <div className="d-flex align-items-center">
+                  <button className="btn btn-lg btn-danger" type="submit">Submit</button>
+                  <div className={"ml-3 "+this.state.spinner}>
+                    <i className="fas fa-spinner fa-2x fa-spin"></i>
                   </div>
-                )
-              })}
-              <div className="d-flex align-items-center">
-                <button className="btn btn-lg btn-danger" type="submit">Submit</button>
-                <div className={"ml-3 "+this.state.spinner}>
-                  <i className="fas fa-spinner fa-2x fa-spin"></i>
                 </div>
-              </div>
-            </form>
+              </form>
+            </div>
           </div>
-          
         </div>
           
         {this.state.srcTags.length > 0 &&
         <div className="bg-light py-5">
           <div className="container">
             <h2>We've generated your custom Bootstrap CSS</h2>
-            <button className="btn btn-lg btn-danger" onClick={this.downloadCSSFile}><i className="fas fa-code"></i> Download bootstrapon.css</button>
-            {this.state.bytes && <p className="d-block w-100">File size: {Math.round(this.state.bytes/1024)} Kb</p>}
+            <button className="btn btn-lg btn-danger mt-2" onClick={this.downloadCSSFile}><i className="fas fa-code"></i> Download bootstrapon.css</button>
+            {this.state.bytes && <p className="d-block w-100 mt-2">File size: {Math.round(this.state.bytes/1024)} Kb</p>}
             <h3 className="mt-5">Here's what's inside</h3>
-            <div className="row mt-4">
-
-              <div className="col-2 text-justify">
+            <div className="row">
+              <div className="col-xs-12 col-md-2 my-3 text-justify">
                 <h5>{this.state.bsTags.length} Bootstrap tags</h5>
                 {this.state.bsTags.map((object, index) => {
                   return (
@@ -148,8 +148,7 @@ class Autoassembler extends Component {
                   )
                 })}
               </div>
-
-              <div className="col-10 text-justify">
+              <div className="col-xs-12 col-md-10 my-3 text-justify">
                 <h5>{this.state.bsClasses.length} Bootstrap classes</h5>
                 {this.state.bsClasses.map((object, index) => {
                   return (
@@ -159,13 +158,10 @@ class Autoassembler extends Component {
                   )
                 })}
               </div>
-
             </div>
-
             <h3 className="mt-5">Here's what else we found</h3>
-            <div className="row mt-4">
-
-              <div className="col-2 text-justify">
+            <div className="row">
+              <div className="col-xs-12 col-md-2 my-3 text-justify">
                 <h5>{this.state.otherTags.length} other tags</h5>
                 {this.state.otherTags.map((object, index) => {
                   return (
@@ -175,8 +171,7 @@ class Autoassembler extends Component {
                   )
                 })}
               </div>
-
-              <div className="col-10 text-justify">
+              <div className="col-xs-12 col-md-10 my-3 text-justify">
                 <h5>{this.state.otherClasses.length} other classes</h5>
                 {this.state.otherClasses.map((object, index) => {
                   return (
@@ -187,16 +182,12 @@ class Autoassembler extends Component {
                 })}
               </div>
             </div>
-
           </div>
-
         </div>
-        }
-          
+        } 
       </div>
     );
   }
-
 }
 
 export default Autoassembler;
