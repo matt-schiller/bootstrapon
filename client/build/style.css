@@ -30,6 +30,23 @@ h1 {
   transition: opacity 0.5s ease-in;
 }
 
+.form-control-custom {
+  border: none;
+  border-bottom: 1px solid gray;
+  border-radius: 0;
+  padding: 0;
+}
+
+.form-control-custom::placeholder {
+  font-weight: 300;
+  color: lightgray;
+}
+
+.form-control:focus {
+  box-shadow:none;
+}
+
+
 /* Colors */
 
 .dark-gray {
