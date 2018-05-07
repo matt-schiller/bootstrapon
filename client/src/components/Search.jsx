@@ -104,7 +104,7 @@ class Search extends Component {
                 <Autosuggest suggestions={suggestions} getSuggestionValue={getSuggestionValue} renderSuggestion={renderSuggestion} inputProps={inputProps} onSuggestionSelected={this.onSuggestionSelected} theme={theme} renderInputComponent={renderInputComponent} />
               </form>
             </div>
-            <div className="col" style={{opacity: this.state.rightColOpacity, transition: '1000ms ease'}}>
+            <div className="col-xs-12 col-md-6" style={{opacity: this.state.rightColOpacity, transition: '1000ms ease'}}>
                 {Object.keys(this.state.results).map( (key) => {
                   return (
                     <div>

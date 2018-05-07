@@ -25,7 +25,7 @@ class Roadmap extends Component {
             <li className="list-group-item">Autoassembler that is based on finding in the DOM</li>
             <li className="list-group-item">API search by name and category</li>
             <li className="list-group-item">API for Autoassembler</li>
-            <li className="list-group-item">Github API integration fro Autoassembler</li>
+            <li className="list-group-item">Github API integration for Autoassembler</li>
           </ul>
         </div>
       </div>

@@ -61,19 +61,20 @@ class Register extends Component {
             <div className="row">
               <div className="form-group col">
                 <label>First name</label>
-                <input className="form-control form-control-lg" value={this.state.firstname} onChange={this.onChange} type="text" name="firstname" placeholder="Your first name" />
+                <input className="form-control form-control-lg form-control-custom" value={this.state.firstname} onChange={this.onChange} type="text" name="firstname" placeholder="Your first name" />
               </div>
               <div className="form-group col">
                 <label>Last name</label>
-                <input className="form-control form-control-lg" value={this.state.lastname} onChange={this.onChange} type="text" name="lastname" placeholder="Your last name" />
+                <input className="form-control form-control-lg form-control-custom" value={this.state.lastname} onChange={this.onChange} type="text" name="lastname" placeholder="Your last name" />
               </div>
             </div>
             <div className="form-group">
               <label>Email</label>
-              <input className="form-control form-control-lg" value={this.state.email} onChange={this.onChange} type="text" name="email" placeholder="Your email address" />
+              <input className="form-control form-control-lg form-control-custom" value={this.state.email} onChange={this.onChange} type="text" name="email" placeholder="Your email address" />
             </div>
-            <div className="text-center mt-5">
-              <button className="btn btn-danger btn-lg" type="submit">Register for API key</button>
+            <div className="mt-4">
+              <div class="g-recaptcha" data-sitekey="6LdDoFcUAAAAACJTDCyHeO3RfYXlFCKoJqWXfEiK"></div>
+              <button className="btn btn-danger btn-lg mt-3" type="submit">Register for API key</button>
             </div>
             <div className={this.state.spinner}>
               <i className="fas fa-spinner fa-2x fa-spin"></i>
